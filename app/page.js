@@ -10,11 +10,11 @@ export default function Home() {
       <StudentInfo/>
       </header>
       
-      <section className="text-lg flex flex-col items-center p-12">
-        <h1>Page Links</h1>
-        <Link href="/week2">WEEK 2 PAGE</Link>
-        <br></br>
-        <Link href="/week3">WEEK 3 PAGE</Link>
+      <section className="text-lg flex flex-col items-center p-12 bg-yellow-400">
+        <h1>PAGE LINKS</h1>
+        <br/>
+        <Link href="/week2" class="hover:text-sky-700">WEEK 2 PAGE</Link>
+        <Link href="/week3" class="hover:text-sky-700">WEEK 3 PAGE</Link>
       </section>
       
     </main>
