@@ -15,6 +15,7 @@ export default function Home() {
         <br/>
         <Link href="/week2" class="hover:text-sky-700">WEEK 2 PAGE</Link>
         <Link href="/week3" class="hover:text-sky-700">WEEK 3 PAGE</Link>
+        <Link href="/week4" class="hover:text-sky-700">WEEK 4 PAGE</Link>
       </section>
       
     </main>
