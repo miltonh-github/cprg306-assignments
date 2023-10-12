@@ -29,9 +29,9 @@ export default function ItemList() {
 
       return (
         <>
-          <button class={sortBy === "name" ? "bg-yellow-400 p-1 m-2 w-28" : "bg-yellow-500 p-1 m-2 w-28"} onClick={(e) => setSortBy(e.target.value)} value="name">Name</button>
-          <button class={sortBy === "category" ? "bg-yellow-400 p-1 m-2 w-28" : "bg-yellow-500 p-1 m-2 w-28"} onClick={(e) => setSortBy(e.target.value)} value="category">Category</button>
-          <section className="grid grid-cols-3 gap-5 p-5">
+          <button class={sortBy === "name" ? "bg-yellow-400 p-1 mx-9 w-28" : "bg-yellow-500 p-1 mx-9 w-28"} onClick={(e) => setSortBy(e.target.value)} value="name">Name</button>
+          <button class={sortBy === "category" ? "bg-yellow-400 p-1 mx-2 w-28" : "bg-yellow-500 p-1 mx-2 w-28"} onClick={(e) => setSortBy(e.target.value)} value="category">Category</button>
+          <section className="grid grid-cols-2 gap-2 p-5">
             {itemArray.map((item) => (
               <Item item={item} key={item.id}/>
             ))}
