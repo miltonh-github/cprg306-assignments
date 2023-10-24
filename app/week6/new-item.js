@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function NewItem() {
+export default function NewItem({ onAddItem }) {
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState("");
     const [category, setCategory] = useState("");
@@ -16,9 +16,10 @@ export default function NewItem() {
             quantity,
             category
         };
-        // Display newItem properties
-        console.log(newItem);
-        alert("Item Name: " + newItem.name + ", Item Quantity: " + newItem.quantity + ", Item Category: " + newItem.category);
+
+        //Replace Alert functionality with a onAddItem prop call
+        onAddItem(newItem);
+        
         // Set to defaults
         setName("");
         setQuantity("");

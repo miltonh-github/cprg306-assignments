@@ -3,14 +3,13 @@
 "use client";
 import { useState } from "react";
 import Item from "./item.js";
-import itemsData from "./items.json";
+// Remove json import; data is now being passed as a prop
+// import itemsData from "./items.json";
 
-export default function ItemList() {
+export default function ItemList({ items }) {
     const [sortBy, setSortBy] = useState("name");
-      // map the JSON data to an array
-    let itemArray = itemsData.map((item) => ({ ...item }));
 
-    itemArray = itemArray.sort((a, b) => {
+    let itemArray = items.sort((a, b) => {
       if (isNaN(parseInt(a[sortBy]))) {
         // sort alphabetically
         let nameA = a[sortBy].toUpperCase();
