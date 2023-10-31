@@ -43,7 +43,7 @@ export default function NewItem({ onAddItem }) {
     };
 
     return (
-        <main>
+        <main className="w-[390px]">
             <form onSubmit={handleSubmit}
                 className="bg-gray-300 p-8"
             >

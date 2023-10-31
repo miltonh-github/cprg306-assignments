@@ -28,11 +28,11 @@ export default function ItemList({ items, onItemSelect }) {
 
       return (
         <>
-          <button class={sortBy === "name" ? "bg-yellow-400 p-1 w-28" : "bg-yellow-500 p-1 w-28"} onClick={(e) => setSortBy(e.target.value)} value="name">Name</button>
-          <button class={sortBy === "category" ? "bg-yellow-400 p-1 w-28" : "bg-yellow-500 p-1 w-28"} onClick={(e) => setSortBy(e.target.value)} value="category">Category</button>
-          <section className="grid grid-cols-2">
+          <section className="">
+          <button className={sortBy === "name" ? "bg-yellow-400 p-1 w-28 mt-3" : "bg-yellow-500 p-1 w-28 mt-3"} onClick={(e) => setSortBy(e.target.value)} value="strMeal">Name</button>
+          <button className={sortBy === "category" ? "bg-yellow-400 p-1 w-28 mt-3" : "bg-yellow-500 p-1 w-28 mt-3"} onClick={(e) => setSortBy(e.target.value)} value="category">Category</button>
             {itemArray.map((item) => (
-              <Item item={item} key={item.id} onSelect={onItemSelect(item)}/>
+              <Item item={item} key={item.id} onSelect={ () => onItemSelect(item)}/>
             ))}
           </section>
         </>
