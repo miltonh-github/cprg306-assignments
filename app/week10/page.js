@@ -27,7 +27,7 @@ return (
     <div className="block mx-auto w-64 my-64">
         <h1 className="text-center">Login via Github</h1>
         {user ? (
-            <div>
+            <p>
                 <img src={user.photoURL} className="w-8 h-8" />
                 Welcome, {user.displayName} {user.email}
                 <button
@@ -38,7 +38,7 @@ return (
                 <br/>
                 <Link href="/week8/shopping-list" class="hover:text-sky-700 text-purple-950">SHOPPING LIST</Link>
             </section>
-            </div>
+            </p>
             ) : (
                 <button
                     className="text-lg block mx-auto px-6 hover:underline bg-purple-300 rounded-md"
