@@ -2,12 +2,13 @@
 
 // WEEK 10
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useUserAuth } from "../_utils/auth-context"
 import ItemList from "./item-list"  
 import NewItem from "./new-item"
-import itemsData from "./items.json";
+// import itemsData from "./items.json";
 import MealIdeas from "./meal-ideas.js";
+import { getItems, addItem } from "./shopping-list-service.js";
 
 export default function Home() {
   const [items, addNewItem] = useState(itemsData.map((item) => ({ ...item })));
