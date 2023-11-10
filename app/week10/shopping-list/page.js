@@ -14,8 +14,7 @@ export default function Home() {
   const [items, addNewItem] = useState(itemsData.map((item) => ({ ...item })));
   const [selectedItemName, updateItemState] = useState(null);
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
-
-  // problem
+  
   const handleItemSelect = (item) => {
     //Two-step itemName cleaning
     // First remove all emojis, then remove commas

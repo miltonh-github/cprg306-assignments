@@ -2,8 +2,15 @@ import { db } from "../_utils/firebase";
 import { collection, getDocs, addDoc, query } from "firebase/firestore";
 
 export async function addNewItem(userId, item) {
+  
     try {
-        const docRef = await addDoc(collection(db, "users", userId, "items"), item);
+        // const docRef = await addDoc(collection(db, "users", userId, "items"), item);
+
+        get(child(docRef)).then((snapshot) => {
+          if (snapshot.exists()) {
+            alert("DUPLICATE DETECTED");
+          }
+        })
         console.log("Document written with ID: ", docRef.id);
     } catch (e) {
         console.error("Error adding document: ", e);
