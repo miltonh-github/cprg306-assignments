@@ -38,9 +38,9 @@ export default function Home() {
     updateItemState(itemName);
   }
 
-  const handleDabe = () => {
-    console.log(items);
-  }
+  // const handleDabe = () => {
+  //   console.log(items);
+  // }
 
   const handleAddItem = (item) => {
     addItem(user.uid, item);
@@ -53,6 +53,7 @@ export default function Home() {
   }
     return (
       <>
+      {/* Check for user logged in */}
         {user ? (<main className="flex flex-col p-24">
           <h1 className="text-2xl font-bold m-2 text-orange-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">My Shopping List</h1>
           <ul>
@@ -65,10 +66,25 @@ export default function Home() {
               
           </div>
           
-          <button onClick={handleDabe}>test</button>
+          {/* <button onClick={handleDabe}>test</button> */}
 
           </ul>
-          
+          {/* If it's me, display Serval! */}
+          { user.email === "miltonhh213@gmail.com" 
+          ? (
+          <div className="fixed right-2 bottom-2">
+            <p className="bg-white rounded-tl-lg rounded-r-lg p-[5vh]">ようこそ！<br/>
+            私サーバルキャトサーバルだよ！</p>
+            <div className="border-l-[25px] border-l-transparent
+          border-t-[100px] border-t-white
+          border-r-[25px] border-r-transparent w-10">
+          </div>
+            <img className="h-[30vh] w-[7.5vw]"src="https://japari-library.com/w/images/6/6b/OzakiServalOriginal.png" />
+          </div>) 
+          // Otherwise, display nothing.
+          : 
+          (<div/>)}
+        {/* Not logged in */}
         </main>) : (
           <p>Must be logged in to access page contents.</p>
           
