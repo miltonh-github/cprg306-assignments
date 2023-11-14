@@ -2,7 +2,7 @@
 
 export default function Item({item, onSelect, onDelete}) {
     return (
-        <li className="border border-yellow-800 bg-yellow-400 w-96 mt-3 p-2">
+        <li className="border border-yellow-800 bg-orange-400 w-96 mt-3 p-2">
             <h3 className="text-xl font-bold">{item.name}</h3>
             <p>Quantity: {item.quantity}</p>
             <p> Category: {item.category}</p>

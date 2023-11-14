@@ -100,7 +100,7 @@ export default function NewItem({ onAddItem }) {
                 </label >
                 <button
                     type="submit"
-                    className="block bg-yellow-400 hover:bg-yellow-200 focus:bg-white rounded-md p-2"
+                    className="block bg-orange-400 hover:bg-orange-200 focus:bg-white rounded-md p-2"
                 >
                     Create Item
                 </button>

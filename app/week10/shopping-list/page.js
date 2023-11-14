@@ -54,7 +54,7 @@ export default function Home() {
     return (
       <>
         {user ? (<main className="flex flex-col p-24">
-          <h1 className="text-2xl font-bold m-2 text-yellow-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">My Shopping List</h1>
+          <h1 className="text-2xl font-bold m-2 text-orange-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">My Shopping List</h1>
           <ul>
           <div className="flex flex-row content-around">
             <div>
