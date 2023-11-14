@@ -2,6 +2,7 @@
 
 // WEEK 10
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useUserAuth } from "../_utils/auth-context"
 import ItemList from "./item-list"  
@@ -53,6 +54,7 @@ export default function Home() {
   }
     return (
       <>
+      <Link href="/week10" className="hover:text-sky-700 text-purple-950">BACK TO WEEK 10</Link>
       {/* Check for user logged in */}
         {user ? (<main className="flex flex-col p-24">
           <h1 className="text-2xl font-bold m-2 text-orange-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">My Shopping List</h1>
@@ -72,15 +74,25 @@ export default function Home() {
           {/* If it's me, display Serval! */}
           { user.email === "miltonhh213@gmail.com" 
           ? (
-          <div className="fixed right-2 bottom-2">
-            <p className="bg-white rounded-tl-lg rounded-r-lg p-[5vh]">ようこそ！<br/>
-            私サーバルキャトサーバルだよ！</p>
-            <div className="border-l-[25px] border-l-transparent
-          border-t-[100px] border-t-white
-          border-r-[25px] border-r-transparent w-10">
+
+          <div className="group">
+            <div className="fixed right-2 bottom-2">
+              <div className="transition-opacity ease-in duration-700 opacity-0 group-hover:opacity-100">
+                <p className="bg-white rounded-tl-lg rounded-r-lg p-[5vh] text-lg">
+                  ようこそ！<br/>
+                  私サーバルキャトサーバルだよ！
+                </p>
+              <div className="border-l-[25px] border-l-transparent
+                border-t-[100px] border-t-white
+                border-r-[25px] border-r-transparent w-10">
+              </div>
+            </div>
+            <a target="_blank" href="https://www.youtube.com/watch?v=VTNKxjJATCc&list=OLAK5uy_nJ-G6BAUEe19F-Xmwd8HtIaNtLN8Gf6cw&index=4&ab_channel=Doubutsubiskets-Topic">
+              <img className="h-[30vh] w-[7.5]"src="https://japari-library.com/w/images/6/6b/OzakiServalOriginal.png" />
+            </a>
+            </div>
           </div>
-            <img className="h-[30vh] w-[7.5vw]"src="https://japari-library.com/w/images/6/6b/OzakiServalOriginal.png" />
-          </div>) 
+          ) 
           // Otherwise, display nothing.
           : 
           (<div/>)}
