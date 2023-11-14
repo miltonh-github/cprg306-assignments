@@ -1,7 +1,7 @@
 "use client";
 
 import { useUserAuth } from "./_utils/auth-context";
-import { getShoppingList, addNewItem } from "./_services/shopping-list-service";
+import { getShoppingList, addItem } from "./_services/shopping-list-service";
 import Link from "next/link";
 
 export default function Page() {
@@ -45,7 +45,7 @@ return (
                 <button
                 className="text-lg block mx-auto px-6 hover:underline bg-purple-300 rounded-md"
                 onClick={handleSignOut}>Sign Out</button>
-                <button onClick={ () => addNewItem(user.uid, newItem)}>Add Test Item</button>
+                <button onClick={ () => addItem(user.uid, newItem)}>Add Test Item</button>
                 <section className="text-lg flex flex-col items-center p-12 bg-purple-300 mt-6">
                 <h1 className="text-xl">PAGE LINKS</h1>
                 <br/>

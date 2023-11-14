@@ -1,7 +1,7 @@
 import { db } from "../_utils/firebase";
-import { collection, getDocs, addDoc, query } from "firebase/firestore";
+import { collection, getDocs, addDoc, query, doc, deleteDoc } from "firebase/firestore";
 
-export async function addNewItem(userId, item) {
+export async function addItem(userId, item) {
     try {
         const docRef = await addDoc(collection(db, "users", userId, "items"), item);
         console.log("Document written with ID: ", docRef.id);
@@ -11,6 +11,12 @@ export async function addNewItem(userId, item) {
     // let userItemsCollection = collection(db, "users", userId, "items");
     // let addItemPromise = await addDoc(userItemsCollection, item);
     // console.log(addItemPromise.id);
+}
+
+export async function deleteItem(userId, item) {
+  const docRef = doc(db, "users", userId, "items", item.id);
+  await deleteDoc(docRef);
+  console.log("Document deleted successfully");
 }
 
 export async function getShoppingList(userId) {

@@ -35,11 +35,11 @@ export default function MealIdeas({ ingredient }) {
 
     return (
         <div className="ml-5">
-            <header>RECIPES</header>
+            <header>RECIPES FOR {ingredient}</header>
             {meals.length > 0 && ingredient != null ? (
             <ul>
             {meals.map((meal) =>(
-                <li key={meal.idMeal}>{meal.strMeal}</li>
+                <li className="text-white"key={meal.idMeal}>{meal.strMeal}</li>
                 ))}
             </ul>
         ) : (

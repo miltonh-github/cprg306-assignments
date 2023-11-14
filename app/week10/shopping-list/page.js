@@ -8,7 +8,7 @@ import ItemList from "./item-list"
 import NewItem from "./new-item"
 // import itemsData from "./items.json";
 import MealIdeas from "./meal-ideas.js";
-import { getShoppingList, addItem } from "../_services/shopping-list-service.js";
+import { getShoppingList, addItem, deleteItem } from "../_services/shopping-list-service.js";
 
 export default function Home() {
   const [items, setItems] = useState([]);
@@ -35,7 +35,6 @@ export default function Home() {
     // First remove all emojis, then remove commas
     let itemName = item.name.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF]|",")/g, '');;
     itemName = itemName.split(', ')[0];
-    // alert(itemName); //DEBUG
     updateItemState(itemName);
   }
 
@@ -44,18 +43,28 @@ export default function Home() {
   }
 
   const handleAddItem = (item) => {
-    addNewItem([...items, item]);
+    addItem(user.uid, item);
+    loadItems();
   };
+
+  const handleDeleteItem = (item) => {
+    deleteItem(user.uid, item);
+    loadItems();
+  }
     return (
       <>
         {user ? (<main className="flex flex-col p-24">
           <h1 className="text-2xl font-bold m-2 text-yellow-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">My Shopping List</h1>
           <ul>
           <div className="flex flex-row content-around">
+            <div>
               <NewItem onAddItem={handleAddItem}/>
+              <ItemList items={items} onItemSelect={handleItemSelect} onDeleteSelect={handleDeleteItem}/>
+            </div>
               <MealIdeas ingredient={selectedItemName}/>
+              
           </div>
-          <ItemList items={items} onItemSelect={handleItemSelect}/>
+          
           <button onClick={handleDabe}>test</button>
 
           </ul>
