@@ -30,7 +30,7 @@ export default function ItemList({ items, onItemSelect, onDeleteSelect }) {
         <>
         {items ? (
           <section className="">
-          <button className={sortBy === "name" ? "bg-yellow-400 p-1 w-28 mt-3" : "bg-yellow-500 p-1 w-28 mt-3"} onClick={(e) => setSortBy(e.target.value)} value="strMeal">Name</button>
+          <button className={sortBy === "name" ? "bg-yellow-400 p-1 w-28 mt-3" : "bg-yellow-500 p-1 w-28 mt-3"} onClick={(e) => setSortBy(e.target.value)} value="name">Name</button>
           <button className={sortBy === "category" ? "bg-yellow-400 p-1 w-28 mt-3" : "bg-yellow-500 p-1 w-28 mt-3"} onClick={(e) => setSortBy(e.target.value)} value="category">Category</button>
             {itemArray.map((item) => (
               <Item item={item} key={item.id} onSelect={ () => onItemSelect(item)} onDelete={ () => onDeleteSelect(item)}/>
