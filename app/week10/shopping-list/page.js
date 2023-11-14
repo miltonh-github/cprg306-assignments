@@ -8,12 +8,25 @@ import ItemList from "./item-list"
 import NewItem from "./new-item"
 // import itemsData from "./items.json";
 import MealIdeas from "./meal-ideas.js";
-import { getItems, addItem } from "./shopping-list-service.js";
+import { getShoppingList, addItem } from "../_services/shopping-list-service.js";
 
 export default function Home() {
-  const [items, addNewItem] = useState(itemsData.map((item) => ({ ...item })));
+  const [items, setItems] = useState();
   const [selectedItemName, updateItemState] = useState(null);
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
+
+  async function loadItems() {
+    try {
+      await setItems(getShoppingList(user.uid));
+    } catch (error) {
+      console.error(error);
+    }
+    
+  }
+
+  useEffect(() => {
+    loadItems();
+}, [user]);
 
   // problem
   const handleItemSelect = (item) => {
