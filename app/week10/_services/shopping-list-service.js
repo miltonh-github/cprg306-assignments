@@ -33,7 +33,6 @@ export async function getShoppingList(userId) {
       console.log(doc.id, " - ", doc.data());
       itemList.push(thisItem);
     });
-    // console.log(userId);
     // console.log("complete");
     // console.log(itemList);
     return(itemList);

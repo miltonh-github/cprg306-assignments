@@ -49,7 +49,7 @@ return (
                 <section className="text-lg flex flex-col items-center p-12 bg-purple-300 mt-6">
                 <h1 className="text-xl">PAGE LINKS</h1>
                 <br/>
-                <Link href="/week8/shopping-list" class="hover:text-sky-700 text-purple-950">SHOPPING LIST</Link>
+                <Link href="/week10/shopping-list" class="hover:text-sky-700 text-purple-950">SHOPPING LIST</Link>
             </section>
             </div>
             ) : (

@@ -8,12 +8,26 @@ import ItemList from "./item-list"
 import NewItem from "./new-item"
 // import itemsData from "./items.json";
 import MealIdeas from "./meal-ideas.js";
-import { getItems, addItem } from "./shopping-list-service.js";
+import { getShoppingList, addItem } from "../_services/shopping-list-service.js";
 
 export default function Home() {
-  const [items, addNewItem] = useState(itemsData.map((item) => ({ ...item })));
+  const [items, setItems] = useState([]);
   const [selectedItemName, updateItemState] = useState(null);
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
+
+  async function loadItems() {
+    try {
+      const data = await getShoppingList(user.uid);
+      let itemsToSet = data;
+      setItems(itemsToSet);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  useEffect(() => {
+    loadItems();
+}, [user]);
 
   // problem
   const handleItemSelect = (item) => {
@@ -23,6 +37,10 @@ export default function Home() {
     itemName = itemName.split(', ')[0];
     // alert(itemName); //DEBUG
     updateItemState(itemName);
+  }
+
+  const handleDabe = () => {
+    console.log(items);
   }
 
   const handleAddItem = (item) => {
@@ -38,6 +56,7 @@ export default function Home() {
               <MealIdeas ingredient={selectedItemName}/>
           </div>
           <ItemList items={items} onItemSelect={handleItemSelect}/>
+          <button onClick={handleDabe}>test</button>
 
           </ul>
           
