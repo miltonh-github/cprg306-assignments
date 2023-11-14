@@ -13,6 +13,10 @@ export async function addNewItem(userId, item) {
     // console.log(addItemPromise.id);
 }
 
+export async function deleteItem(userId, item) {
+  
+}
+
 export async function getShoppingList(userId) {
     // const q = query(
     //     collection(db, "users", "user1", "items"),

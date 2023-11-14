@@ -4,7 +4,7 @@
 import { useState } from "react";
 import Item from "./item.js";
 
-export default function ItemList({ items, onItemSelect }) {
+export default function ItemList({ items, onItemSelect, onDelete }) {
     const [sortBy, setSortBy] = useState("name");
 
     // NOTE: since in week10 shopping-list-service returns the item list as an array and not a json,
