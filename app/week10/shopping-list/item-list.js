@@ -7,7 +7,9 @@ import Item from "./item.js";
 export default function ItemList({ items, onItemSelect }) {
     const [sortBy, setSortBy] = useState("name");
 
-    let itemArray = [items].sort((a, b) => {
+    // NOTE: since in week10 shopping-list-service returns the item list as an array and not a json,
+    // had to modify [items] to become items.
+    let itemArray = items.sort((a, b) => {
       if (isNaN(parseInt(a[sortBy]))) {
         // sort alphabetically
         let nameA = a[sortBy].toUpperCase();

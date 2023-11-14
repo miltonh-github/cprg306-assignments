@@ -11,17 +11,18 @@ import MealIdeas from "./meal-ideas.js";
 import { getShoppingList, addItem } from "../_services/shopping-list-service.js";
 
 export default function Home() {
-  const [items, setItems] = useState();
+  const [items, setItems] = useState([]);
   const [selectedItemName, updateItemState] = useState(null);
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
 
   async function loadItems() {
     try {
-      await setItems(getShoppingList(user.uid));
+      const data = await getShoppingList(user.uid);
+      let itemsToSet = data;
+      setItems(itemsToSet);
     } catch (error) {
       console.error(error);
     }
-    
   }
 
   useEffect(() => {
@@ -38,6 +39,10 @@ export default function Home() {
     updateItemState(itemName);
   }
 
+  const handleDabe = () => {
+    console.log(items);
+  }
+
   const handleAddItem = (item) => {
     addNewItem([...items, item]);
   };
@@ -51,6 +56,7 @@ export default function Home() {
               <MealIdeas ingredient={selectedItemName}/>
           </div>
           <ItemList items={items} onItemSelect={handleItemSelect}/>
+          <button onClick={handleDabe}>test</button>
 
           </ul>
           
