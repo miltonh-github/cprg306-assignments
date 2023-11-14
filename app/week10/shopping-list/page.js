@@ -43,18 +43,28 @@ export default function Home() {
   }
 
   const handleAddItem = (item) => {
-    addNewItem([...items, item]);
+    addItem(user.uid, item);
+    loadItems();
   };
+
+  const handleDeleteItem = (item) => {
+    deleteItem(user.uid, item);
+    loadItems();
+  }
     return (
       <>
         {user ? (<main className="flex flex-col p-24">
           <h1 className="text-2xl font-bold m-2 text-yellow-400 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,1)]">My Shopping List</h1>
           <ul>
           <div className="flex flex-row content-around">
+            <div>
               <NewItem onAddItem={handleAddItem}/>
+              <ItemList items={items} onItemSelect={handleItemSelect} onDeleteSelect={handleDeleteItem}/>
+            </div>
               <MealIdeas ingredient={selectedItemName}/>
+              
           </div>
-          <ItemList items={items} onItemSelect={handleItemSelect}/>
+          
           <button onClick={handleDabe}>test</button>
 
           </ul>
